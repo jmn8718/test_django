@@ -1,0 +1,35 @@
+{% extends "apps/base.html" %}
+
+{% block title %}{{title}}{% endblock %}
+{% block title1 %}{{title}}{% endblock %}
+{% block title2 %}{{title}}{% endblock %}
+
+{% block content %}
+<form class="mdl-custom__form" action="/apps/upload" method="post">
+  <div class="mdl-textfield mdl-js-textfield">
+    <input class="mdl-textfield__input" type="file" id="file">
+  </div>
+  <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+    <textarea class="mdl-textfield__input" type="text" id="description"  rows= "3"></textarea>
+    <label class="mdl-textfield__label" for="description">Description...</label>
+  </div>
+  <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+    <input class="mdl-textfield__input" type="url" id="link">
+    <label class="mdl-textfield__label" for="link">Link...</label>
+    <span class="mdl-textfield__error">Invalid url link</span>
+  </div>
+  <div class="mdl-selectfield">
+    <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-public">
+	  <input type="radio" id="option-public" class="mdl-radio__button" name="options" value="PUBLIC" checked>
+	  <span class="mdl-radio__label">Public</span>
+	</label>
+	<label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-private">
+	  <input type="radio" id="option-private" class="mdl-radio__button" name="options" value="PRIVATE">
+	  <span class="mdl-radio__label">Private</span>
+	</label>
+  </div>	
+	<button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">
+  SAVE
+</button>
+</form>
+{% endblock %}

@@ -1,0 +1,26 @@
+{% extends "apps/base.html" %}
+
+{% block title %}{{title}}{% endblock %}
+{% block title1 %}{{title}}{% endblock %}
+{% block title2 %}{{title}}{% endblock %}
+
+{% block content %}
+{% if apps %}
+<ul class="mdl-list">
+    {% for app in apps %}
+    <li class="mdl-list__item">
+        <span class="mdl-list__item-primary-content">
+        <i class="material-icons mdl-list__item-icon">description</i>
+        	<a href="{% url 'detail' app.id %}">{{ app.description }}</a>
+        </span>
+    </li>
+    {% endfor %}
+</ul>	
+{% else %}
+<div class="mdl-card">
+  <div class="mdl-card__title">
+  NO APPS
+  </div>
+</div>
+{% endif %}
+{% endblock %}
