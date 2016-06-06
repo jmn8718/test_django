@@ -23,3 +23,7 @@ django-admin startproject mysite
 python manage.py runserver
 
 python manage.py startapp polls
+
+
+### doing
+https://docs.djangoproject.com/en/1.9/intro/tutorial03/
