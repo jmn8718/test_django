@@ -5,32 +5,33 @@
 {% block title2 %}{{title}}{% endblock %}
 
 {% block content %}
-<form class="mdl-custom__form" action="/apps/edit/{{app.id}}" method="post">
-  <div class="mdl-textfield mdl-js-textfield">
-    <input class="mdl-textfield__input" type="file" id="file" value="{{app.file}}">
+<form class="mdl-custom__form" action="/apps/edit/{{app.id}}" method="post">{% csrf_token %}
+  <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-color--primary">
+    <input class="mdl-textfield__input" type="text" id="file" value="{{app.file}}" name="file" disabled>
+    <label class="mdl-textfield__label" for="link">File...</label>
   </div>
   <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-    <textarea class="mdl-textfield__input" type="text" id="description"  rows= "3">{{app.description}}</textarea>
+    <textarea class="mdl-textfield__input" type="text" id="description" name="description" rows= "3">{{app.description}}</textarea>
     <label class="mdl-textfield__label" for="description">Description...</label>
   </div>
   <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-    <input class="mdl-textfield__input" type="url" id="link" value="{{app.link}}">
+    <input class="mdl-textfield__input" type="url" id="link" name="link" value="{{app.link}}">
     <label class="mdl-textfield__label" for="link">Link...</label>
     <span class="mdl-textfield__error">Invalid url link</span>
   </div>
   <div class="mdl-selectfield">
-    <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-public">
-	  <input type="radio" id="option-public" class="mdl-radio__button" name="options" value="PU" {% if app.access_right == 'PU'%}checked{% endif%}>
+    <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="access_right-public">
+	  <input type="radio" id="access_right-public" class="mdl-radio__button" name="access_right" value="PU" {% if app.access_right == 'PU'%}checked{% endif %}>
 	  <span class="mdl-radio__label">Public</span>
 	</label>
-	<label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-private">
-	  <input type="radio" id="option-private" class="mdl-radio__button" name="options" value="PR"
+	<label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="access_right-private">
+	  <input type="radio" id="access_right-private" class="mdl-radio__button" name="access_right" value="PR"
     {% if app.access_right == 'PR'%}checked{% endif%}>
 	  <span class="mdl-radio__label">Private</span>
 	</label>
   </div>	
 	<button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">
-  SAVE
+  UPDATE
 </button>
 </form>
 {% endblock %}

@@ -11,15 +11,15 @@
     <li class="mdl-list__item">
         <span class="mdl-list__item-primary-content">
         <i class="material-icons mdl-list__item-icon">description</i>
-        	<a href="{% url 'detail' app.id %}">{{ app.description }}</a>
+        	<a href="{% url 'detail' app.id %}">{{ app.file }}</a>
         </span>
     </li>
     {% endfor %}
 </ul>	
 {% else %}
-<div class="mdl-card">
+<div class="mdl-card mdl-shadow--4dp red">
   <div class="mdl-card__title">
-  NO APPS
+    <h1 class="display-3">NO APPS</h1>
   </div>
 </div>
 {% endif %}

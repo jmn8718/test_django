@@ -1,0 +1,21 @@
+.mdl-custom__form > *{
+    display: block;
+    margin: 0 auto 20px;
+    text-align: center;
+}
+.mdl-textfield{
+    width: 480px;
+}
+.mdl-radio{
+    padding: 0 20px;
+}
+.mdl-card{
+    width: 100%;
+}
+.display-3{
+    margin-left: auto;
+    margin-right: auto;
+}
+.mdl-textfield__input-custom{
+    margin-top: 25px;
+}
